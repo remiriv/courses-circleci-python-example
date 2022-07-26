@@ -1,0 +1,4 @@
+flask==2.1
+pytest==7.1
+pylint==2.14
+black==22.6
