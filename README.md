@@ -13,7 +13,7 @@ This application consists of:
 
 Create a venv to install the dependencies locally when you'll run the application
 
-`mkdir envs/`
+`mkdir envs/` <br />
 `python3 -m venv envs/<your_env_name>`
 
 Then activate the environment 
@@ -22,26 +22,26 @@ Then activate the environment
 
 Navigate to the folder src then install the dependencies
 
-`cd src`
+`cd src` <br />
 `pip install -r requirements.txt`
 
-You should now be able to launch the flask application ! 
+You should now be able to run the flask application ! 
 Choose an environment name if you want to, but that's not mandatory.  
 
 `ENV_NAME=<my_env> FLASK_APP=main:flask_engine flask run`
 
 ## Run the tests 
 
-You can run the tests using the command: 
+#### pytest
 
-`pytest`
+You can run the tests using the command: `pytest`
 
 ## Linter check and fix
 
-The check of code style is done by <b>pylint</b>, run: 
+#### pylint
 
-`pylint src` or `pylint .` if it does not work. 
+The check of code style is done by <b>pylint</b>, run: `pylint src` or `pylint .` if it does not work. 
 
-The style corrections made to the code are done by <b>black</b>, run: 
+#### black
 
-`black .` or `black src` if it does not work.
+The style corrections made to the code are done by <b>black</b>, run: `black .` or `black src` if it does not work.
