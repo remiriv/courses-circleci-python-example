@@ -9,11 +9,11 @@ jobs:
           name: Install Dependencies
           command: pip install -r src/requirements.txt
       - run:
-          name: lint
-          command: pylint src
-      - run:
           name: test
           command: pytest
+      - run:
+          name: lint
+          command: pylint src
 
 workflows:
   version: 2
