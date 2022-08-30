@@ -24,8 +24,5 @@ def test_env_default(
     assert get_environment_name() == "default"
 
 
-def test_env_context():
-    assert get_environment_name() == "Context_Environment"
-
 def test_env_inline():
     assert get_environment_name() == "Still another env"

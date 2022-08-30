@@ -3,6 +3,8 @@ jobs:
   launch_tests:
     docker:
       - image: circleci/python:3.9
+    environment:
+      ENV_NAME: Still another env
     steps:
       - checkout
       - run:
@@ -16,16 +18,12 @@ jobs:
           command: pytest
 
 workflows:
-  version: 2
-  test_with_context:
+  test_with_env:
     jobs:
-      - launch_tests: 
-          context:
-            - test_configuration_python
+      - launch_tests
+
   test_with_context_and_env:
     jobs:
       - launch_tests: 
           context:
             - test_configuration_python
-          environment:
-            ENV_NAME: Still another env
