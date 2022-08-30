@@ -9,7 +9,7 @@ from src.tests.envs import (
 
 
 def test_env_dev(env_dev):  # pylint: disable=unused-argument, redefined-outer-name
-    assert get_environment_name() == "environment"
+    assert get_environment_name() == "development"
 
 
 def test_env_staging(
