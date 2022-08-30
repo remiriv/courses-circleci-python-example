@@ -1,0 +1,31 @@
+version: 2.1
+jobs:
+  launch_tests:
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: pip install -r src/requirements.txt
+      - run:
+          name: lint
+          command: pylint src
+      - run:
+          name: test
+          command: pytest
+
+workflows:
+  version: 2
+  test_with_context:
+    jobs:
+      - launch_tests: 
+          context:
+            - test_configuration_python
+  test_with_context_and_env:
+    jobs:
+      - launch_tests: 
+          context:
+            - test_configuration_python
+          environment:
+            ENV_NAME: Still another env
