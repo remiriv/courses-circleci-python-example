@@ -16,7 +16,6 @@ jobs:
           command: pytest
 
 workflows:
-  version: 2
   test_and_linter:
     jobs:
       - launch_tests: 
