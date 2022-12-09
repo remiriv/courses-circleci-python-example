@@ -62,7 +62,7 @@ jobs:
 workflows:
   run_tests_and_deploy: 
     jobs: 
-      - start
+      - starting_work
       - launch_tests: 
           context:
             - test_configuration_python
