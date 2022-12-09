@@ -59,7 +59,9 @@ workflows:
             - test_configuration_python
           filters:
             branches:
-              only: /branching-.*/
+              only: 
+                - branching-staging
+                - branching-production
       - deploy_staging: 
           context:
             - staging
