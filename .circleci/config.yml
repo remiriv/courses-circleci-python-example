@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   launch_tests:
     docker:
-      - image: circleci/python:3.9
+      - image: cimg/python:3.9
     environment:
       ENV_NAME: Still another env
     steps:
