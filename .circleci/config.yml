@@ -85,4 +85,8 @@ workflows:
           requires: 
             - launch_tests
             - launch_integration_tests
-      - all_good
+      - all_good:
+          requires: 
+            - deploy_staging
+            - deploy_production
+
