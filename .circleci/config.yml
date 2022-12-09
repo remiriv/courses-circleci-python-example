@@ -10,6 +10,13 @@ steps:
 
 
 jobs:
+  starting_work:
+    docker:
+      - image: cimg/base
+    steps:
+      - run:
+          name: Starting
+          command: echo "Starting to build !"
   launch_tests:
     docker:
       - image: cimg/python:3.9
@@ -44,33 +51,38 @@ jobs:
       - run:
           name: Running deployment to production step
           command: echo "Deploy to production"
+  all_good:
+    docker:
+      - image: cimg/base
+    steps:
+      - run:
+          name: All good
+          command: echo "All steps are finished and succeeded !"
 
 workflows:
   run_tests_and_deploy: 
     jobs: 
+      - start
       - launch_tests: 
           context:
             - test_configuration_python
-          filters:
-            branches:
-              ignore: /branching-.*/
+          requires: 
+            - start
       - launch_integration_tests: 
           context:
             - test_configuration_python
-          filters:
-            branches:
-              only: 
-                - branching-staging
-                - branching-production
+          requires: 
+            - start
       - deploy_staging: 
           context:
             - staging
-          filters: 
-            branches:
-              only: branching-staging
+          requires: 
+            - launch_tests
+            - launch_integration_tests
       - deploy_production: 
           context:
             - production
-          filters: 
-            branches:
-              only: branching-production
+          requires: 
+            - launch_tests
+            - launch_integration_tests
+      - all_good
