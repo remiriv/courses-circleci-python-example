@@ -67,12 +67,12 @@ workflows:
           context:
             - test_configuration_python
           requires: 
-            - start
+            - starting_work
       - launch_integration_tests: 
           context:
             - test_configuration_python
           requires: 
-            - start
+            - starting_work
       - deploy_staging: 
           context:
             - staging
